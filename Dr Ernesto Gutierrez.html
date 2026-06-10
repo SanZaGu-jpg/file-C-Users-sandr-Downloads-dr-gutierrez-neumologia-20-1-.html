@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Ernesto Gutiérrez — Neumología</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d1b2a;--navy2:#1a2f45;--navy3:#2a4660;
+  --sky:#a8c5da;--cream:#f7f4ef;
+  --gold:#b8933e;--gold2:#d4a95a;
+  --white:#fff;--text:#3a5068;--muted:#6b8499;
+  --div:rgba(13,27,42,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;font-size:16px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,27,42,0.97);backdrop-filter:blur(8px);padding:0 6vw;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid rgba(168,197,218,0.15)}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo{width:38px;height:38px;flex-shrink:0}
+.nav-brand-text{font-family:'Cormorant Garamond',serif;color:var(--sky);font-size:1.05rem;font-weight:400;letter-spacing:.04em;line-height:1.2}
+.nav-brand-sub{font-family:'DM Sans',sans-serif;font-size:.65rem;font-weight:300;color:rgba(168,197,218,.5);letter-spacing:.15em;text-transform:uppercase;display:block}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.82rem;font-weight:300;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--sky)}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--navy);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(135deg,var(--navy2) 0%,var(--navy3) 100%);clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%)}
+.hero-content{padding:80px 6vw 0;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero-eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:1.5rem;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold2)}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,4.5rem);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:.3rem}
+.hero-title em{font-style:italic;color:var(--sky)}
+.hero-specialty{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:300;color:var(--sky);letter-spacing:.06em;margin-bottom:2rem}
+.hero-desc{max-width:420px;font-size:.95rem;font-weight:300;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:2.5rem}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--white);text-decoration:none;padding:14px 32px;font-size:.82rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .2s;align-self:flex-start}
+.hero-cta:hover{background:var(--gold2);transform:translateY(-1px)}
+.hero-visual{position:relative;z-index:2;display:flex;align-items:center;justify-content:center}
+.hero-badges{position:absolute;bottom:10%;right:6vw;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.hero-badge{background:rgba(168,197,218,.1);border:1px solid rgba(168,197,218,.25);padding:10px 18px;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.8);font-size:.8rem;font-weight:300}
+.badge-icon{width:28px;height:28px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;flex-shrink:0}
+
+/* SECTIONS */
+section{padding:100px 6vw}
+.section-label{font-size:.72rem;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.section-label::before{content:'';display:block;width:24px;height:1px;background:var(--gold)}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.1;margin-bottom:1.5rem;color:var(--navy)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto}
+.about-text p{font-size:.95rem;font-weight:300;color:var(--text);line-height:1.85;margin-bottom:1rem}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--div)}
+.stat-block{background:var(--navy);padding:2.5rem 2rem;text-align:center}
+.stat-number{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--sky);line-height:1;margin-bottom:.5rem}
+.stat-label{font-size:.78rem;font-weight:300;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;line-height:1.4}
+.ornament{display:flex;align-items:center;gap:12px;margin-top:2.5rem}
+.ornament-line{flex:1;height:1px;background:var(--div);max-width:60px}
+.ornament-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+
+/* SERVICES */
+.services-bg{background:var(--navy)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(255,255,255,.08);margin-top:3rem;max-width:1100px;margin-left:auto;margin-right:auto}
+.service-card{background:var(--navy);padding:2.5rem 2rem;transition:background .25s}
+.service-card:hover{background:var(--navy2)}
+.service-icon{width:48px;height:48px;background:rgba(168,197,218,.1);border:1px solid rgba(168,197,218,.2);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:22px}
+.service-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--white);margin-bottom:.75rem}
+.service-desc{font-size:.83rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.7}
+
+/* SCHEDULE */
+.schedule-wrap{max-width:1000px;margin:0 auto}
+.city-block{margin-bottom:4rem}
+.city-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--div)}
+.city-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.city-dot.asuncion{background:var(--gold)}
+.city-dot.concepcion{background:var(--sky)}
+.city-name{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--navy)}
+.clinics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.clinic-card{background:var(--white);border:1px solid var(--div);padding:1.75rem;transition:box-shadow .2s,transform .2s}
+.clinic-card:hover{box-shadow:0 8px 32px rgba(13,27,42,.08);transform:translateY(-2px)}
+.clinic-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--div);margin-bottom:.5rem;line-height:1}
+.clinic-name{font-size:1rem;font-weight:500;color:var(--navy);margin-bottom:.4rem}
+.clinic-detail{font-size:.82rem;font-weight:300;color:var(--muted);line-height:1.6}
+.clinic-tag{display:inline-block;margin-top:1rem;font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px}
+.clinic-tag.asuncion{background:rgba(184,147,62,.1);color:var(--gold)}
+.clinic-tag.concepcion{background:rgba(168,197,218,.2);color:var(--navy3)}
+
+/* CONTACT */
+.contact-bg{background:var(--navy)}
+.contact-bg .section-title{color:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1000px;margin:3rem auto 0;align-items:start}
+.contact-info-row{display:flex;align-items:flex-start;gap:16px;margin-bottom:2rem}
+.contact-icon-box{width:40px;height:40px;background:rgba(168,197,218,.1);border:1px solid rgba(168,197,218,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:var(--sky)}
+.contact-label{font-size:.72rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px}
+.contact-value{font-size:.95rem;font-weight:300;color:rgba(255,255,255,.85);line-height:1.6}
+.contact-form-wrap{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:2.5rem}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--white);margin-bottom:1.5rem}
+.form-group{margin-bottom:1.2rem}
+.form-label{display:block;font-size:.75rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
+.form-control{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:12px 16px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:300;color:var(--white);outline:none;transition:border-color .2s}
+.form-control::placeholder{color:rgba(255,255,255,.3)}
+.form-control:focus{border-color:rgba(168,197,218,.5)}
+textarea.form-control{resize:vertical;min-height:90px}
+.form-select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:12px 16px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:300;color:var(--white);outline:none;appearance:none;cursor:pointer}
+.form-select option{background:var(--navy);color:var(--white)}
+.btn-submit{width:100%;background:var(--gold);border:none;padding:14px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--white);cursor:pointer;margin-top:.5rem;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-submit:hover{background:var(--gold2)}
+.wa-link{color:#4dd97a;text-decoration:none;font-weight:500}
+.wa-link:hover{text-decoration:underline}
+#f-confirm{display:none;margin-top:1rem;padding:12px 16px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);color:#4dd97a;font-size:.85rem;line-height:1.6}
+
+/* FOOTER */
+footer{background:#080e15;padding:40px 6vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06)}
+.footer-brand{font-family:'Cormorant Garamond',serif;color:var(--sky);font-size:1rem;font-weight:300;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
+.footer-copy{font-size:.78rem;font-weight:300;color:rgba(255,255,255,.3)}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr}
+  .hero::before{width:100%;clip-path:none;top:60%;height:40%}
+  .hero-visual,.hero-badges{display:none}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .nav-links{display:none}
+  footer{flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <svg class="nav-logo" viewBox="0 0 100 96" xmlns="http://www.w3.org/2000/svg">
+      <path d="M47,2 C45,2 44,5 44,10 L44,26 C44,29 47,31 50,31 C53,31 56,29 56,26 L56,10 C56,5 55,2 53,2 Z" fill="#c4d8e8"/>
+      <path d="M45,10 Q50,8 55,10" stroke="#8ab0cc" stroke-width="1" fill="none"/>
+      <path d="M45,17 Q50,15 55,17" stroke="#8ab0cc" stroke-width="1" fill="none"/>
+      <path d="M45,24 Q50,22 55,24" stroke="#8ab0cc" stroke-width="1" fill="none"/>
+      <path d="M46,29 C42,36 26,40 16,48" stroke="#c4d8e8" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M46,29 C42,36 26,40 16,48" stroke="#8ab0cc" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M54,29 C58,36 74,40 84,48" stroke="#c4d8e8" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M54,29 C58,36 74,40 84,48" stroke="#8ab0cc" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M16,48 C6,53 1,64 2,75 C3,84 10,91 19,93 C26,95 34,92 38,86 C42,80 41,70 38,62 C35,54 28,48 22,47 C19,46 16,47 16,48 Z" fill="#152e47" stroke="#2e5e80" stroke-width="1.2"/>
+      <path d="M84,48 C94,53 99,64 98,75 C97,84 90,91 81,93 C74,95 66,92 62,86 C58,80 59,70 62,62 C65,54 72,48 78,47 C81,46 84,47 84,48 Z" fill="#152e47" stroke="#2e5e80" stroke-width="1.2"/>
+      <path d="M16,48 C11,55 8,64 8,73" stroke="#d4a95a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M16,48 C19,57 20,68 18,78" stroke="#d4a95a" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M8,73 C6,80 7,87 10,92" stroke="#d4a95a" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M18,78 C14,84 13,90 16,94" stroke="#d4a95a" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M18,78 C22,84 24,90 21,94" stroke="#d4a95a" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M84,48 C89,55 92,64 92,73" stroke="#d4a95a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M84,48 C81,57 80,68 82,78" stroke="#d4a95a" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M92,73 C94,80 93,87 90,92" stroke="#d4a95a" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M82,78 C86,84 87,90 84,94" stroke="#d4a95a" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M82,78 C78,84 76,90 79,94" stroke="#d4a95a" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <circle cx="8" cy="93" r="3.5" fill="#152e47" stroke="#c49040" stroke-width="1" opacity="0.85"/>
+      <circle cx="16" cy="95" r="3" fill="#152e47" stroke="#c49040" stroke-width="1" opacity="0.85"/>
+      <circle cx="21" cy="95" r="3" fill="#152e47" stroke="#c49040" stroke-width="1" opacity="0.85"/>
+      <circle cx="92" cy="93" r="3.5" fill="#152e47" stroke="#c49040" stroke-width="1" opacity="0.85"/>
+      <circle cx="84" cy="95" r="3" fill="#152e47" stroke="#c49040" stroke-width="1" opacity="0.85"/>
+      <circle cx="79" cy="95" r="3" fill="#152e47" stroke="#c49040" stroke-width="1" opacity="0.85"/>
+      <circle cx="50" cy="29" r="5" fill="#b8933e"/>
+      <circle cx="50" cy="29" r="2.5" fill="#0d1b2a"/>
+      <circle cx="50" cy="29" r="1.2" fill="#d4a95a"/>
+    </svg>
+    <div>
+      <span class="nav-brand-text">Dr. Ernesto Gutiérrez</span>
+      <span class="nav-brand-sub">Neumología</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre el Médico</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Especialista en Neumología</div>
+    <h1 class="hero-title">Dr. Ernesto<br><em>Gutiérrez</em></h1>
+    <p class="hero-specialty">Médico Neumólogo</p>
+    <p class="hero-desc">Atención especializada en enfermedades respiratorias con el más alto nivel de excelencia médica. Consultorios en Asunción y Concepción.</p>
+    <a href="#contacto" class="hero-cta">Solicitar Turno →</a>
+  </div>
+  <div class="hero-visual">
+    <svg width="300" height="320" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg" opacity="0.9">
+      <path d="M148,6 C146,6 143,9 143,16 L143,58 C143,62 146,65 150,65 C154,65 157,62 157,58 L157,16 C157,9 154,6 152,6 Z" fill="#c4d8e8"/>
+      <path d="M144,16 Q150,14 156,16" stroke="#8ab0cc" stroke-width="1.4" fill="none"/>
+      <path d="M144,24 Q150,22 156,24" stroke="#8ab0cc" stroke-width="1.4" fill="none"/>
+      <path d="M144,32 Q150,30 156,32" stroke="#8ab0cc" stroke-width="1.4" fill="none"/>
+      <path d="M144,40 Q150,38 156,40" stroke="#8ab0cc" stroke-width="1.4" fill="none"/>
+      <path d="M144,48 Q150,46 156,48" stroke="#8ab0cc" stroke-width="1.4" fill="none"/>
+      <path d="M144,56 Q150,54 156,56" stroke="#8ab0cc" stroke-width="1.4" fill="none"/>
+      <path d="M144,63 C138,76 108,82 86,98" stroke="#c4d8e8" stroke-width="13" fill="none" stroke-linecap="round"/>
+      <path d="M144,63 C138,76 108,82 86,98" stroke="#8ab0cc" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <path d="M156,63 C162,76 192,82 214,98" stroke="#c4d8e8" stroke-width="13" fill="none" stroke-linecap="round"/>
+      <path d="M156,63 C162,76 192,82 214,98" stroke="#8ab0cc" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <!-- pulmón izq -->
+      <path d="M86,98 C68,105 44,120 30,142 C16,164 14,192 20,214 C26,234 42,250 60,257 C74,263 92,262 104,253 C116,244 122,228 124,212 C126,194 120,174 114,156 C108,138 100,122 94,108 C90,98 88,96 86,98 Z" fill="#152e47" stroke="#2e5e80" stroke-width="1.4"/>
+      <path d="M86,98 C78,126 76,154 84,178" stroke="#234c68" stroke-width="1" fill="none" stroke-dasharray="5,4" opacity="0.8"/>
+      <path d="M86,98 C72,112 56,126 46,144" stroke="#d4a95a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <path d="M86,98 C84,122 80,146 76,168" stroke="#d4a95a" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M46,144 C36,158 28,174 26,192" stroke="#d4a95a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+      <path d="M46,144 C52,158 56,174 54,192" stroke="#d4a95a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+      <path d="M76,168 C68,184 62,202 62,220" stroke="#d4a95a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+      <path d="M76,168 C84,184 88,202 86,220" stroke="#d4a95a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+      <path d="M26,192 C20,206 20,222 22,236" stroke="#d4a95a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M54,192 C48,206 48,222 50,236" stroke="#d4a95a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M62,220 C56,234 56,248 58,260" stroke="#d4a95a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M86,220 C90,234 92,248 90,262" stroke="#d4a95a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <circle cx="22" cy="242" r="6" fill="#152e47" stroke="#c49040" stroke-width="1.1" opacity="0.8"/>
+      <circle cx="50" cy="242" r="6" fill="#152e47" stroke="#c49040" stroke-width="1.1" opacity="0.8"/>
+      <circle cx="58" cy="266" r="6" fill="#152e47" stroke="#c49040" stroke-width="1.1" opacity="0.8"/>
+      <circle cx="90" cy="268" r="6" fill="#152e47" stroke="#c49040" stroke-width="1.1" opacity="0.8"/>
+      <!-- pulmón der -->
+      <path d="M214,98 C234,106 260,122 274,146 C288,170 288,200 280,222 C272,242 256,256 238,262 C224,267 206,265 194,255 C182,245 176,228 176,212 C176,194 182,174 188,156 C194,138 202,120 208,108 C212,98 212,96 214,98 Z" fill="#152e47" stroke="#2e5e80" stroke-width="1.4"/>
+      <path d="M214,98 C220,126 216,156 204,178" stroke="#234c68" stroke-width="1" fill="none" stroke-dasharray="5,4" opacity="0.8"/>
+      <path d="M252,116 C258,142 252,166 238,182" stroke="#234c68" stroke-width="1" fill="none" stroke-dasharray="5,4" opacity="0.8"/>
+      <path d="M214,98 C228,112 244,126 254,144" stroke="#d4a95a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <path d="M214,98 C214,122 212,146 208,168" stroke="#d4a95a" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M254,144 C262,158 268,174 268,192" stroke="#d4a95a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+      <path d="M254,144 C246,158 240,174 240,192" stroke="#d4a95a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+      <path d="M208,168 C200,184 194,202 194,220" stroke="#d4a95a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+      <path d="M208,168 C216,184 220,202 218,220" stroke="#d4a95a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+      <path d="M268,192 C272,208 270,224 266,238" stroke="#d4a95a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M240,192 C244,208 242,224 240,238" stroke="#d4a95a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M194,220 C188,234 188,248 190,262" stroke="#d4a95a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M218,220 C222,234 224,248 222,262" stroke="#d4a95a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <circle cx="266" cy="244" r="6" fill="#152e47" stroke="#c49040" stroke-width="1.1" opacity="0.8"/>
+      <circle cx="240" cy="244" r="6" fill="#152e47" stroke="#c49040" stroke-width="1.1" opacity="0.8"/>
+      <circle cx="190" cy="268" r="6" fill="#152e47" stroke="#c49040" stroke-width="1.1" opacity="0.8"/>
+      <circle cx="222" cy="268" r="6" fill="#152e47" stroke="#c49040" stroke-width="1.1" opacity="0.8"/>
+      <!-- carina -->
+      <circle cx="150" cy="63" r="9" fill="#b8933e"/>
+      <circle cx="150" cy="63" r="4.5" fill="#0d1b2a"/>
+      <circle cx="150" cy="63" r="2" fill="#d4a95a"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <div class="section-label">Sobre el Médico</div>
+      <h2 class="section-title">Excelencia en el cuidado respiratorio</h2>
+      <p>El Dr. Ernesto Gutiérrez es especialista en Neumología, dedicado al diagnóstico y tratamiento de enfermedades del sistema respiratorio con enfoque humano, riguroso y actualizado.</p>
+      <p>Su práctica integra las últimas evidencias científicas con una atención personalizada, brindando a cada paciente el tiempo y la dedicación que merece para comprender su condición y tratamiento.</p>
+      <p>Con presencia en Asunción y Concepción, pone a disposición su experiencia en el manejo de patologías respiratorias complejas.</p>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+    </div>
+    <div class="about-stats fade-up">
+      <div class="stat-block"><div class="stat-number">2</div><div class="stat-label">Ciudades de atención</div></div>
+      <div class="stat-block"><div class="stat-number">4</div><div class="stat-label">Centros médicos</div></div>
+      <div class="stat-block"><div class="stat-number">6</div><div class="stat-label">Días a la semana</div></div>
+      <div class="stat-block"><div class="stat-number">∞</div><div class="stat-label">Compromiso con su salud</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios" class="services-bg">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-label" style="color:rgba(168,197,218,.7)">Servicios</div>
+    <h2 class="section-title" style="color:var(--white)">Áreas de atención</h2>
+    <div class="services-grid fade-up">
+      <div class="service-card"><div class="service-icon">🫁</div><div class="service-name">Asma y EPOC</div><p class="service-desc">Diagnóstico y tratamiento de obstrucción crónica de vías aéreas y asma bronquial.</p></div>
+      <div class="service-card"><div class="service-icon">😴</div><div class="service-name">Trastornos del Sueño</div><p class="service-desc">Evaluación y manejo de apnea obstructiva del sueño y alteraciones respiratorias nocturnas.</p></div>
+      <div class="service-card"><div class="service-icon">🦠</div><div class="service-name">Infecciones Respiratorias</div><p class="service-desc">Neumonía, bronquitis, tuberculosis y otras infecciones del tracto respiratorio.</p></div>
+      <div class="service-card"><div class="service-icon">📊</div><div class="service-name">Espirometría</div><p class="service-desc">Evaluación funcional pulmonar para diagnóstico preciso de enfermedades respiratorias.</p></div>
+      <div class="service-card"><div class="service-icon">🔬</div><div class="service-name">Enfermedades Intersticiales</div><p class="service-desc">Diagnóstico de fibrosis pulmonar, sarcoidosis y otras patologías del intersticio.</p></div>
+      <div class="service-card"><div class="service-icon">🩺</div><div class="service-name">Control Preventivo</div><p class="service-desc">Seguimiento, prevención y control de factores de riesgo en salud pulmonar.</p></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact-bg">
+  <div style="max-width:580px;margin:0 auto;text-align:center">
+    <div class="section-label" style="color:rgba(168,197,218,.7);justify-content:center">Contacto</div>
+    <h2 class="section-title" style="color:var(--white)">Solicitar un turno</h2>
+    <div style="display:inline-flex;align-items:center;gap:12px;padding:14px 24px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);margin-bottom:2.5rem;cursor:pointer;" onclick="window.location.href='https://wa.me/595981220742'">
+      <span style="font-size:22px;">💬</span>
+      <span style="color:#4dd97a;font-size:1rem;font-weight:500;">+595 981 220 742</span>
+    </div>
+    <div class="contact-form-wrap fade-up" style="text-align:left">
+      <div class="form-title">Reservar turno</div>
+      <div class="form-group">
+        <label class="form-label">Nombre completo</label>
+        <input type="text" id="f-nombre" class="form-control" placeholder="Su nombre completo">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Teléfono / WhatsApp</label>
+        <input type="tel" id="f-tel" class="form-control" placeholder="+595 ...">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Consultorio</label>
+        <select id="f-consultorio" class="form-select">
+          <option value="">Seleccionar...</option>
+          <optgroup label="Asunción">
+            <option>Migone</option>
+            <option>Clínica Guggiari</option>
+          </optgroup>
+          <optgroup label="Concepción">
+            <option>Sanatorio Concepción</option>
+            <option>CEMO</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Fecha preferida</label>
+        <input type="date" id="f-fecha" class="form-control" style="color-scheme:dark">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Hora preferida</label>
+        <input type="time" id="f-hora" class="form-control" style="color-scheme:dark">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Motivo de consulta</label>
+        <textarea id="f-motivo" class="form-control" placeholder="Describa brevemente su consulta..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="enviarReserva()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.12 1.518 5.856L.036 23.5l5.818-1.526A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.65-.51-5.166-1.395l-.371-.22-3.849 1.01 1.028-3.741-.242-.385A9.952 9.952 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        Enviar solicitud por WhatsApp
+      </button>
+
+      <!-- CONFIRMACIÓN AL PACIENTE -->
+      <div id="f-confirm" style="display:none;margin-top:1.5rem;border:1px solid rgba(37,211,102,.3);overflow:hidden;">
+        <div style="background:rgba(37,211,102,.15);padding:16px 20px;display:flex;align-items:center;gap:12px;">
+          <span style="font-size:24px;">✅</span>
+          <div>
+            <div style="color:#4dd97a;font-weight:500;font-size:.95rem;">¡Solicitud enviada correctamente!</div>
+            <div style="color:rgba(255,255,255,.5);font-size:.78rem;margin-top:2px;">El Dr. Gutiérrez recibirá su pedido y le confirmará a la brevedad.</div>
+          </div>
+        </div>
+        <div style="padding:20px;background:rgba(255,255,255,.03);">
+          <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;">Resumen de su solicitud</div>
+          <div id="f-resumen" style="font-size:.88rem;color:rgba(255,255,255,.75);line-height:2;"></div>
+        </div>
+        <div style="padding:16px 20px;background:rgba(184,147,62,.08);border-top:1px solid rgba(184,147,62,.2);">
+          <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:10px;">
+            📋 Respuesta sugerida para el Doctor
+          </div>
+          <div id="f-respuesta-doc" style="font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.7;background:rgba(0,0,0,.2);padding:12px;border-left:3px solid var(--gold);font-style:italic;"></div>
+          <button onclick="copiarRespuesta()" style="margin-top:12px;background:var(--gold);border:none;color:#fff;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .2s;" onmouseover="this.style.background='#d4a95a'" onmouseout="this.style.background='#b8933e'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            <span id="btn-copiar-texto">Copiar respuesta</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <svg width="26" height="25" viewBox="0 0 100 96" xmlns="http://www.w3.org/2000/svg">
+      <path d="M47,2 C45,2 44,5 44,10 L44,26 C44,29 47,31 50,31 C53,31 56,29 56,26 L56,10 C56,5 55,2 53,2 Z" fill="#c4d8e8"/>
+      <path d="M46,29 C42,36 26,40 16,48" stroke="#c4d8e8" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M46,29 C42,36 26,40 16,48" stroke="#8ab0cc" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M54,29 C58,36 74,40 84,48" stroke="#c4d8e8" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M54,29 C58,36 74,40 84,48" stroke="#8ab0cc" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M16,48 C6,53 1,64 2,75 C3,84 10,91 19,93 C26,95 34,92 38,86 C42,80 41,70 38,62 C35,54 28,48 22,47 Z" fill="#152e47" stroke="#2e5e80" stroke-width="1.2"/>
+      <path d="M84,48 C94,53 99,64 98,75 C97,84 90,91 81,93 C74,95 66,92 62,86 C58,80 59,70 62,62 C65,54 72,48 78,47 Z" fill="#152e47" stroke="#2e5e80" stroke-width="1.2"/>
+      <path d="M16,48 C11,55 8,64 8,73" stroke="#d4a95a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path d="M84,48 C89,55 92,64 92,73" stroke="#d4a95a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <circle cx="50" cy="29" r="5" fill="#b8933e"/>
+      <circle cx="50" cy="29" r="2" fill="#080e15"/>
+    </svg>
+    Dr. Ernesto Gutiérrez · Neumología
+  </div>
+  <div class="footer-copy">Asunción · Concepción · Paraguay</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+var fechaInput = document.getElementById('f-fecha');
+if (fechaInput) {
+  var hoy = new Date().toISOString().split('T')[0];
+  fechaInput.min = hoy;
+}
+
+var respuestaParaCopiar = '';
+
+function enviarReserva() {
+  var nombre      = document.getElementById('f-nombre').value.trim();
+  var tel         = document.getElementById('f-tel').value.trim();
+  var consultorio = document.getElementById('f-consultorio').value;
+  var fecha       = document.getElementById('f-fecha').value;
+  var hora        = document.getElementById('f-hora').value;
+  var motivo      = document.getElementById('f-motivo').value.trim();
+
+  if (!nombre || !consultorio || !fecha) {
+    alert('Por favor completá nombre, consultorio y fecha.');
+    return;
+  }
+
+  var partes = fecha.split('-');
+  var meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  var fechaLeida = partes[2] + ' de ' + meses[parseInt(partes[1])-1] + ' de ' + partes[0];
+  var horaLeida  = hora ? ' a las ' + hora + ' hs' : '';
+
+  // Mensaje al doctor
+  var msgDoctor = '🩺 *Solicitud de turno*\n\n'
+    + '👤 *Paciente:* ' + nombre + '\n'
+    + '📱 *Contacto:* ' + (tel || 'No indicado') + '\n'
+    + '🏥 *Consultorio:* ' + consultorio + '\n'
+    + '📅 *Fecha:* ' + fechaLeida + horaLeida + '\n'
+    + (motivo ? '📝 *Motivo:* ' + motivo : '');
+
+  // Respuesta sugerida que el doctor copia y pega al paciente
+  respuestaParaCopiar = 'Hola ' + nombre + ' 👋\n\n'
+    + 'Confirmamos su solicitud de turno con el *Dr. Ernesto Gutiérrez* — Neumólogo.\n\n'
+    + '📅 *Fecha:* ' + fechaLeida + horaLeida + '\n'
+    + '🏥 *Consultorio:* ' + consultorio + '\n\n'
+    + 'En breve nos comunicamos para confirmar la disponibilidad del turno.\n\n'
+    + '_Consultorio Dr. Gutiérrez · Neumología_ 🫁';
+
+  // Mostrar resumen al paciente
+  document.getElementById('f-resumen').innerHTML =
+      '🏥 <strong style="color:#fff">Consultorio:</strong> ' + consultorio + '<br>'
+    + '📅 <strong style="color:#fff">Fecha:</strong> ' + fechaLeida + horaLeida + '<br>'
+    + '👤 <strong style="color:#fff">Paciente:</strong> ' + nombre + '<br>'
+    + (tel ? '📱 <strong style="color:#fff">Contacto:</strong> ' + tel + '<br>' : '')
+    + (motivo ? '📝 <strong style="color:#fff">Motivo:</strong> ' + motivo : '');
+
+  // Mostrar respuesta sugerida para el doctor
+  document.getElementById('f-respuesta-doc').innerText = respuestaParaCopiar;
+
+  // Mostrar cuadro de confirmación
+  document.getElementById('f-confirm').style.display = 'block';
+  document.getElementById('f-confirm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Abrir WhatsApp con el mensaje al doctor
+  setTimeout(function() {
+    window.location.href = 'https://wa.me/595981220742?text=' + encodeURIComponent(msgDoctor);
+  }, 600);
+}
+
+function copiarRespuesta() {
+  if (!respuestaParaCopiar) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(respuestaParaCopiar).then(function() {
+      var btn = document.getElementById('btn-copiar-texto');
+      btn.innerText = '✅ ¡Copiado!';
+      setTimeout(function() { btn.innerText = 'Copiar respuesta'; }, 2500);
+    });
+  } else {
+    // Fallback para navegadores que no soportan clipboard API
+    var ta = document.createElement('textarea');
+    ta.value = respuestaParaCopiar;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var btn = document.getElementById('btn-copiar-texto');
+    btn.innerText = '✅ ¡Copiado!';
+    setTimeout(function() { btn.innerText = 'Copiar respuesta'; }, 2500);
+  }
+}
+</script>
+</body>
+</html>
